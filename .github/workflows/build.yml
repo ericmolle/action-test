@@ -7,4 +7,4 @@ jobs:
       - uses: actions/checkout@main
       #      - uses: actions/setup-node@v1
       - run: make  
-      - run: trololo
+      - run: ./trololo
