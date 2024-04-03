@@ -4,17 +4,9 @@ on:
     inputs:
       
 jobs:
-  check-bats-version:
     runs-on: ubuntu-latest
-    strategy:
-        matrix:
-          include:
-            - setup: my-container
-              docker-compose-build: "-f docker/docker-compose.centos-6.yaml -f docker/docker-compose.centos-6.18.yaml build"
-              docker-compose-run: "-f docker/docker-compose.centos-6.yaml -f docker/docker-compose.centos-6.18.yaml run build"
     steps:
-      - uses: actions/checkout@main
-      - run: docker-compose ${{ matrix.docker-compose-build }}
-      - run: docker-compose ${{ matrix.docker-compose-run }} | tee build.output
-      - run: make  
-      - run: ./trololo
+      - name: checkout
+        uses: actions/checkout@main
+      - name: build project
+        run: make  
