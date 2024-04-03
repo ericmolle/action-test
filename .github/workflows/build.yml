@@ -1,5 +1,8 @@
 name: learn-github-actions
-on: [push]
+on: 
+  workflow_dispatch:
+    inputs:
+      
 jobs:
   check-bats-version:
     runs-on: ubuntu-latest
