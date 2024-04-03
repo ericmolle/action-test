@@ -1,7 +1,0 @@
-version: "3"
-
-services:
-
-  build:
-    command: /bin/bash -cl "make "
-

@@ -2,11 +2,16 @@ name: learn-github-actions
 on: 
   workflow_dispatch:
     inputs:
-      
+
 jobs:
+  ubuntu-build:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout
-        uses: actions/checkout@main
-      - name: build project
-        run: make  
+    - name: Checkout
+      uses: actions/checkout@v2.0.0
+    - name: Build project
+      uses: nicledomaS/cmake_build_action@v1.4
+      with:
+        submodule_update: ON
+        run_tests: ON
+        unit_test_build: -Dtest=ON
